@@ -32,7 +32,7 @@ full_path = "/home/tako/pytorch-multigpu/data"
 BATCH_SIZE = 16
 num_epochs = 500
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-#image_size = (600, 600)
+image_size = (600, 600)
 # class SquarePad:
 #     def __call__(self, image):
 #         max_wh = max(image.size)
@@ -46,7 +46,7 @@ data_transforms = {
         transforms.RandomVerticalFlip(),
         #SquarePad(),
         transforms.RandomRotation(degrees=(0, 180)),
-        #transforms.Resize(image_size),
+        transforms.Resize(image_size),
         #transforms.RandomInvert(),
         #transforms.RandomAdjustSharpness(sharpness_factor=2),
         #transforms.Grayscale(num_output_channels=3), #  using grayscale triggers error of
@@ -61,7 +61,7 @@ data_transforms = {
         #transforms.ColorJitter(brightness=.5, hue=.3),
         #SquarePad(),
         #transforms.Grayscale(num_output_channels=3),
-        #transforms.Resize(image_size),
+        transforms.Resize(image_size),
         transforms.ToTensor(),
         transforms.Normalize(mean=means,std=stds)
                             ]),

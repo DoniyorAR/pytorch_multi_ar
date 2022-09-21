@@ -28,7 +28,7 @@ torch.cuda.empty_cache()
 means = [0.6039, 0.5215, 0.4241]
 stds =  [0.1572, 0.1731, 0.2067]
 data_dir = 'data'
-full_path = "/home/tako/pytorch-multigpu/data"
+full_path = "/home/tako/dataset/data"
 BATCH_SIZE = 48
 num_epochs = 500
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

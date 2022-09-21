@@ -27,10 +27,10 @@ torch.cuda.empty_cache()
 
 means = [0.6039, 0.5215, 0.4241]
 stds =  [0.1572, 0.1731, 0.2067]
-data_dir = 'dataset/food_600'
-full_path = "C:/repos/new_file/dataset/"
-BATCH_SIZE = 1
-num_epochs = 100
+data_dir = 'data'
+full_path = "/home/tako/pytorch-multigpu/data"
+BATCH_SIZE = 64
+num_epochs = 500
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 #image_size = (600, 600)
 # class SquarePad:

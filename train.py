@@ -30,12 +30,12 @@ means = [0.6039, 0.5215, 0.4241]
 stds =  [0.1572, 0.1731, 0.2067]
 data_dir = 'data'
 full_path = "/home/tako/dataset/data"
-BATCH_SIZE = 96
+BATCH_SIZE = 48
 num_epochs = 100
 
 parser = argparse.ArgumentParser(description='cifar10 classification models')
 parser.add_argument("--gpu_devices", type=int, nargs='+', default=None, help="")
-parser.add_argument('--num_worker', type=int, default=4, help='')
+
 args = parser.parse_args()
 gpu_devices = ','.join([str(id) for id in args.gpu_devices])
 os.environ["CUDA_VISIBLE_DEVICES"] = gpu_devices
@@ -87,9 +87,9 @@ path = {x: os.path.join(os.path.dirname(os.path.abspath(full_path)), data_dir,x)
 image_datasets = {x: datasets.ImageFolder(path[x], data_transforms[x])
                                           for x in ['train', 'val']}
 dataloaders = { 'train' : torch.utils.data.DataLoader(image_datasets['train'], batch_size=BATCH_SIZE,
-                                             shuffle=True, num_workers=args.num_worker),
+                                             shuffle=True, num_workers=2),
                 'val' : torch.utils.data.DataLoader(image_datasets['val'], batch_size=BATCH_SIZE,
-                                             shuffle=True, num_workers=args.num_worker),
+                                             shuffle=True, num_workers=2),
                                              }
 
 dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}

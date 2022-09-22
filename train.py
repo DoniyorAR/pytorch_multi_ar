@@ -39,7 +39,8 @@ args = parser.parse_args()
 gpu_devices = ','.join([str(id) for id in args.gpu_devices])
 os.environ["CUDA_VISIBLE_DEVICES"] = gpu_devices
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+#device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 image_size = (600, 600)
 # class SquarePad:
 #     def __call__(self, image):

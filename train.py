@@ -31,6 +31,13 @@ data_dir = 'data'
 full_path = "/home/tako/dataset/data"
 BATCH_SIZE = 48
 num_epochs = 500
+
+parser = argparse.ArgumentParser(description='cifar10 classification models')
+parser.add_argument("--gpu_devices", type=int, nargs='+', default=None, help="")
+args = parser.parse_args()
+gpu_devices = ','.join([str(id) for id in args.gpu_devices])
+os.environ["CUDA_VISIBLE_DEVICES"] = gpu_devices
+
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 image_size = (600, 600)
 # class SquarePad:

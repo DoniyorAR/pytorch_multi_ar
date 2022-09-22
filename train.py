@@ -30,7 +30,7 @@ means = [0.6039, 0.5215, 0.4241]
 stds =  [0.1572, 0.1731, 0.2067]
 data_dir = 'data'
 full_path = "/home/tako/dataset/data"
-BATCH_SIZE = 48
+BATCH_SIZE = 96
 num_epochs = 500
 
 parser = argparse.ArgumentParser(description='cifar10 classification models')

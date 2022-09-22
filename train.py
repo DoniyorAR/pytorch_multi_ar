@@ -113,7 +113,7 @@ def train_model(model, criterion, optimizer, dataloaders, device, dataset_sizes,
     #print(d.isoformat())
     def printOsInfo():
 
-        print('GPU                  :\t', torch.cuda.get_device_name(0)) 
+        print('GPU                  :\t', torch.cuda.device_count()) 
         print('OS                   :\t', platform.system())
  
     if __name__ == '__main__':
